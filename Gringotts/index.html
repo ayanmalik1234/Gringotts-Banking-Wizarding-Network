@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gringotts Banking Wizarding Network</title>
+    <meta
+      name="description"
+      content="A simulated fintech and trading dashboard for wizarding currency conversion, vault allocation, and security event monitoring."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <div class="bg-orb bg-orb-a"></div>
+    <div class="bg-orb bg-orb-b"></div>
+    <div class="bg-grid"></div>
+
+    <main class="shell">
+      <header class="masthead">
+        <div>
+          <p class="eyebrow">Gringotts Banking Wizarding Network</p>
+          <h1>Vault Markets and Currency Intelligence</h1>
+          <p class="lede">
+            Real-time simulated exchange rates, a vault allocation modeler, and a transaction ledger styled for the goblin
+            banking floor.
+          </p>
+        </div>
+
+        <div class="rate-card">
+          <div>
+            <span class="label">Oracle Rate Feed</span>
+            <strong id="feed-status">LIVE</strong>
+          </div>
+          <div>
+            <span class="label">Market Pulse</span>
+            <strong id="market-pulse">Stable</strong>
+          </div>
+          <div>
+            <span class="label">Vault Integrity</span>
+            <strong id="vault-integrity">99.8%</strong>
+          </div>
+        </div>
+      </header>
+
+      <section class="ticker-wrap panel">
+        <div class="ticker" aria-label="Market ticker">
+          <div class="ticker-track" id="ticker-track"></div>
+        </div>
+      </section>
+
+      <section class="panel instruments-panel">
+        <div class="panel-head compact">
+          <div>
+            <p class="panel-kicker">Market Instruments</p>
+            <h2>Vault Exchange Surface</h2>
+          </div>
+          <span class="panel-badge">8 instruments</span>
+        </div>
+        <div id="instrument-strip" class="instrument-strip"></div>
+      </section>
+
+      <section class="workspace">
+        <div class="panel chart-panel">
+          <div class="panel-head">
+            <div>
+              <p class="panel-kicker">Asset Engine</p>
+              <h2>Fluctuating Currency Chart</h2>
+            </div>
+            <div class="chart-meta">
+              <span id="chart-symbol">GALLEON/USD</span>
+              <span id="chart-price">--</span>
+            </div>
+          </div>
+          <canvas id="chart-canvas" width="980" height="360" aria-label="Candlestick style price chart"></canvas>
+          <div class="chart-foot">
+            <span>Simulated with live random walk pressure, vault demand shocks, and commodity drift.</span>
+            <span id="chart-delta">0.00%</span>
+          </div>
+        </div>
+
+        <aside class="stack">
+          <section class="panel conversion-panel">
+            <div class="panel-head compact">
+              <div>
+                <p class="panel-kicker">Conversion Terminal</p>
+                <h2>Instant Currency Math</h2>
+              </div>
+            </div>
+            <div class="conversion-grid">
+              <label>
+                Amount
+                <input id="amount-input" type="number" min="0" step="0.01" value="1" />
+              </label>
+              <label>
+                From
+                <select id="from-currency"></select>
+              </label>
+              <label>
+                To
+                <select id="to-currency"></select>
+              </label>
+            </div>
+            <div class="conversion-result">
+              <span id="conversion-output">--</span>
+              <small id="conversion-detail">Canonical math: 1 Galleon = 17 Sickles = 493 Knuts.</small>
+            </div>
+          </section>
+
+          <section class="panel analytics-panel">
+            <div class="panel-head compact">
+              <div>
+                <p class="panel-kicker">Vault Allocation Modeler</p>
+                <h2>Portfolio Projection</h2>
+              </div>
+              <button class="ghost" id="reset-allocation">Reset</button>
+            </div>
+            <div id="allocation-list" class="allocation-list"></div>
+            <div class="analytics-grid">
+              <article>
+                <span>Total Value</span>
+                <strong id="portfolio-value">--</strong>
+              </article>
+              <article>
+                <span>Projected Yield</span>
+                <strong id="portfolio-yield">--</strong>
+              </article>
+              <article>
+                <span>Risk Index</span>
+                <strong id="risk-index">--</strong>
+              </article>
+              <article>
+                <span>Volatility</span>
+                <strong id="volatility">--</strong>
+              </article>
+              <article>
+                <span>Concentration</span>
+                <strong id="concentration">--</strong>
+              </article>
+              <article>
+                <span>Reserve Buffer</span>
+                <strong id="reserve-buffer">--</strong>
+              </article>
+              <article>
+                <span>Max Drawdown</span>
+                <strong id="max-drawdown">--</strong>
+              </article>
+              <article>
+                <span>Shock Exposure</span>
+                <strong id="shock-exposure">--</strong>
+              </article>
+            </div>
+            <button class="primary" id="download-invoice">Download Transaction Invoice</button>
+          </section>
+        </aside>
+      </section>
+
+      <section class="panel ledger-panel">
+        <div class="panel-head compact">
+          <div>
+            <p class="panel-kicker">Security Channel</p>
+            <h2>Vault Security Log</h2>
+          </div>
+        </div>
+        <div id="security-log" class="security-log" aria-live="polite"></div>
+      </section>
+    </main>
+  </body>
+</html>
